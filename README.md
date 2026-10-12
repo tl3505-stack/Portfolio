@@ -1,12 +1,32 @@
 # Tianjiao Shi — Portfolio
 
-Portfolio website for 3D spatial quality, AI evaluation, real-time environments, and spatial data workflows.
+Tianjiao Shi's approved V8 portfolio for AI product management, product design, and spatial / 3D work. The Next.js homepage preserves the confirmed preview's layout, case stories, complete visual archives, and serif Why Me titles.
 
 ## GitHub Pages
 
 Every push to `main` builds the static site and deploys it with GitHub Pages. The production URL is:
 
 https://tl3505-stack.github.io/Portfolio/
+
+The homepage is rendered from `app/page.tsx`, with the preview's styles in
+`app/globals.css`. `app/portfolio-interactions.tsx` initializes the menu and
+case-study galleries from `app/portfolio-runtime.js`, with listener cleanup,
+keyboard focus containment, and focus restoration on close. Original media
+remains under `public/`; the additional Café Nomade final page is saved as
+`public/lumina/cafe-nomade-conclusion.png`. Asset paths honor
+`NEXT_PUBLIC_BASE_PATH` for GitHub Pages and root hosting.
+
+To check the GitHub Pages export on a shell that supports inline environment variables:
+
+```sh
+npm ci
+GITHUB_PAGES=true NEXT_PUBLIC_BASE_PATH=/Portfolio npm run build:github
+node --test tests/static-export.test.mjs
+```
+
+In PowerShell, set `$env:GITHUB_PAGES='true'` and
+`$env:NEXT_PUBLIC_BASE_PATH='/Portfolio'` before building. The existing Sites
+build helpers and unrelated examples are retained below.
 
 ## Local development
 
